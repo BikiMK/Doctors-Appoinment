@@ -18,7 +18,19 @@ const Appointment = () => {
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState('');
 
-  
+  const fetchDocInfo = () => {
+    // Mock doctor data if not found in context
+    const mockDoctors = [
+      { _id: "1", name: "Dr. Christopher Davis", degree: "MBBS", speciality: "General physician", image: "https://via.placeholder.com/150?text=Dr.+Christopher", about: "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.", fees: 49, experience: "4 yrs", slots_booked: {} },
+      { _id: "2", name: "Dr. John Smith", degree: "MBBS", speciality: "General physician", image: "https://via.placeholder.com/150?text=Dr.+John", about: "Dr. Smith specializes in general health and preventive care with a patient-centered approach.", fees: 49, experience: "5 yrs", slots_booked: {} },
+      { _id: "3", name: "Dr. Emily Brown", degree: "MBBS", speciality: "General physician", image: "https://via.placeholder.com/150?text=Dr.+Emily", about: "Dr. Brown focuses on comprehensive care and early detection of health issues.", fees: 49, experience: "3 yrs", slots_booked: {} },
+      { _id: "4", name: "Dr. Michael Lee", degree: "MBBS", speciality: "General physician", image: "https://via.placeholder.com/150?text=Dr.+Michael", about: "Dr. Lee offers expert care with an emphasis on preventive medicine.", fees: 49, experience: "6 yrs", slots_booked: {} },
+      { _id: "5", name: "Dr. Sarah Davis", degree: "MBBS", speciality: "Gynecologist", image: "https://via.placeholder.com/150?text=Dr.+Sarah", about: "Dr. Sarah specializes in women’s health and reproductive care.", fees: 59, experience: "4 yrs", slots_booked: {} },
+      { _id: "6", name: "Dr. Laura Wilson", degree: "MBBS", speciality: "Gynecologist", image: "https://via.placeholder.com/150?text=Dr.+Laura", about: "Dr. Wilson provides expert gynecological and prenatal care.", fees: 59, experience: "5 yrs", slots_booked: {} },
+      { _id: "7", name: "Dr. Rachel Green", degree: "MBBS", speciality: "Gynecologist", image: "https://via.placeholder.com/150?text=Dr.+Rachel", about: "Dr. Green focuses on women’s health and surgical interventions.", fees: 59, experience: "3 yrs", slots_booked: {} },
+      { _id: "8", name: "Dr. Anna Taylor", degree: "MBBS", speciality: "Gynecologist", image: "https://via.placeholder.com/150?text=Dr.+Anna", about: "Dr. Taylor offers comprehensive gynecological care.", fees: 59, experience: "6 yrs", slots_booked: {} },
+      // Add more mock data for other specialties as needed
+    ];
 
     const foundDoc = mockDoctors.find(doc => doc._id === docId) || doctors.find(doc => doc._id === docId);
     setDocInfo(foundDoc || null);
